@@ -1,12 +1,9 @@
 :alarm_clock: [set-alarm](https://aureooms.github.io/set-alarm)
 ==
 
-Call a Function on a given Date.
+Call a `Function` on a given `Date`.
 The API tries to mimic [the `setTimeout` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) as best as possible.
 See [docs](https://aureooms.github.io/set-alarm/index.html).
-
-> :building_construction: Caveat emptor! This is work in progress. Code may be
-> working. Documentation may be present. Coherence may be. Maybe.
 
 ```js
 import {setAlarm, clearAlarm, Alarm} from 'set-alarm';

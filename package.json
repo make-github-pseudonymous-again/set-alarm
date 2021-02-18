@@ -132,12 +132,8 @@
       "unicorn"
     ],
     "rules": {
-      "unicorn/filename-case": [
-        "error",
-        {
-          "case": "camelCase"
-        }
-      ]
+      "unicorn/filename-case": "off",
+      "no-warning-comments": "off"
     },
     "overrides": [
       {

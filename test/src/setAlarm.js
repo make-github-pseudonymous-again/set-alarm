@@ -3,13 +3,14 @@ import test from 'ava';
 import {setAlarm} from '../../src/index.js';
 
 const TOLERANCE = 10; // 10 ms
-const closeEnough = (a, b) => Math.abs(a - b) <= TOLERANCE;
 const date = (delay) => new Date(Date.now() + delay);
 
 const macro = (t, delay) => {
 	const check = () => {
 		const triggeredAt = new Date();
-		t.true(closeEnough(triggeredAt, expected));
+		const delta = triggeredAt - expected;
+		t.true(delta >= 0);
+		t.true(delta <= TOLERANCE);
 		t.end();
 	};
 

@@ -92,13 +92,14 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-clearAlarm">clearAlarm</a></span></span><span class="code" data-ice="signature">(alarm: <span>*</span>)</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-clearAlarm">clearAlarm</a></span></span><span class="code" data-ice="signature">(alarm: <span><a href="class/src/Alarm.js~Alarm.html">Alarm</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Prevents an alarm from triggering.</p>
+</div>
       </div>
     </td>
     <td>
@@ -120,18 +121,13 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setAlarm">setAlarm</a></span></span><span class="code" data-ice="signature">(callback: <span>*</span>, date: <span>*</span>, rest: ...<span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setAlarm">setAlarm</a></span></span><span class="code" data-ice="signature">(callback: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>, date: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></span>, rest: ...<span>any</span>): <span><a href="class/src/Alarm.js~Alarm.html">Alarm</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>We workaround two issues raised by a naive setTimeout implementation:</p>
-<ul>
-<li>the delay parameter is a 32-bit signed integer</li>
-<li>the resolution time of setAlarm could be imprecise with large delays
-(because of setInterval/setTimeout drift).</li>
-</ul>
+        <div data-ice="description"><p>Set an alarm to trigger at a given date/time specified by a Date object.</p>
 </div>
       </div>
     </td>

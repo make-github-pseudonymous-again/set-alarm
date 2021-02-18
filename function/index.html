@@ -58,13 +58,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-clearAlarm">clearAlarm</a></span></span><span class="code" data-ice="signature">(alarm: <span>*</span>)</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-clearAlarm">clearAlarm</a></span></span><span class="code" data-ice="signature">(alarm: <span><a href="class/src/Alarm.js~Alarm.html">Alarm</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Prevents an alarm from triggering.</p>
+</div>
       </div>
     </td>
     <td>
@@ -86,18 +87,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setAlarm">setAlarm</a></span></span><span class="code" data-ice="signature">(callback: <span>*</span>, date: <span>*</span>, rest: ...<span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setAlarm">setAlarm</a></span></span><span class="code" data-ice="signature">(callback: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>, date: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></span>, rest: ...<span>any</span>): <span><a href="class/src/Alarm.js~Alarm.html">Alarm</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>We workaround two issues raised by a naive setTimeout implementation:</p>
-<ul>
-<li>the delay parameter is a 32-bit signed integer</li>
-<li>the resolution time of setAlarm could be imprecise with large delays
-(because of setInterval/setTimeout drift).</li>
-</ul>
+        <div data-ice="description"><p>Set an alarm to trigger at a given date/time specified by a Date object.</p>
 </div>
       </div>
     </td>
@@ -119,18 +115,23 @@
     
     
     
-    <span class="code" data-ice="name">clearAlarm</span><span class="code" data-ice="signature">(alarm: <span>*</span>)</span>
+    <span class="code" data-ice="name">clearAlarm</span><span class="code" data-ice="signature">(alarm: <span><a href="class/src/Alarm.js~Alarm.html">Alarm</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/clearAlarm.js.html#lineNumber3">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/clearAlarm.js.html#lineNumber13">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import clearAlarm from &apos;<span><a href="file/src/clearAlarm.js.html#lineNumber3">set-alarm/src/clearAlarm.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import clearAlarm from &apos;<span><a href="file/src/clearAlarm.js.html#lineNumber13">set-alarm/src/clearAlarm.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Prevents an alarm from triggering. Obviously, this does not work if the
+alarm has triggered before calling <code>clearAlarm</code>. However, it is guaranteed
+that if <code>clearAlarm</code> is called before <code>alarm</code> has triggered, <code>alarm</code> will
+never trigger.</p>
+<p>Does nothing on invalid arguments (it will not throw).</p>
+</div>
 
   
 
@@ -144,9 +145,10 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">alarm</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="class/src/Alarm.js~Alarm.html">Alarm</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>The alarm to clear.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -178,23 +180,30 @@
     
     
     
-    <span class="code" data-ice="name">setAlarm</span><span class="code" data-ice="signature">(callback: <span>*</span>, date: <span>*</span>, rest: ...<span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">setAlarm</span><span class="code" data-ice="signature">(callback: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>, date: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></span>, rest: ...<span>any</span>): <span><a href="class/src/Alarm.js~Alarm.html">Alarm</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/setAlarm.js.html#lineNumber19">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/setAlarm.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import setAlarm from &apos;<span><a href="file/src/setAlarm.js.html#lineNumber19">set-alarm/src/setAlarm.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import setAlarm from &apos;<span><a href="file/src/setAlarm.js.html#lineNumber33">set-alarm/src/setAlarm.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>We workaround two issues raised by a naive setTimeout implementation:</p>
-<ul>
+  <div data-ice="description"><p>Set an alarm to trigger at a given date/time specified by a Date object.
+When triggered, the alarm will call the callback function with passed
+arguments, if any.</p>
+<p>We guarantee that the alarm will not trigger before the given date/time.
+We try to trigger the alarm as soom as the given date/time has passed.</p>
+<p>Note that we workaround two issues raised by a naive setTimeout
+implementation:</p>
+<ol>
 <li>the delay parameter is a 32-bit signed integer</li>
-<li>the resolution time of setAlarm could be imprecise with large delays
-(because of setInterval/setTimeout drift).</li>
-</ul>
+<li>taking the first point into account, the resolution time of setAlarm
+could be imprecise with large delays (because of setInterval/setTimeout
+drift).</li>
+</ol>
 </div>
 
   
@@ -209,21 +218,24 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">callback</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>The Function to call when the alarm triggers.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">date</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>The date/time at which to trigger the alarm.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">rest</td>
-      <td data-ice="type" class="code">...<span>*</span></td>
+      <td data-ice="type" class="code">...<span>any</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>The arguments to call the callback with.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -235,8 +247,9 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/Alarm.js~Alarm.html">Alarm</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>The alarm object.</p>
+</td>
         </tr>
       </tbody>
     </table>

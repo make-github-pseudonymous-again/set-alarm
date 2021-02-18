@@ -735,7 +735,7 @@
     "__docId__": 59,
     "kind": "file",
     "name": "src/clearAlarm.js",
-    "content": "import Alarm from './Alarm.js';\n\nexport default function clearAlarm(alarm) {\n\tif (alarm instanceof Alarm) {\n\t\talarm.clear();\n\t}\n}\n",
+    "content": "import Alarm from './Alarm.js';\n\n/**\n * Prevents an alarm from triggering. Obviously, this does not work if the\n * alarm has triggered before calling `clearAlarm`. However, it is guaranteed\n * that if `clearAlarm` is called before `alarm` has triggered, `alarm` will\n * never trigger.\n *\n * Does nothing on invalid arguments (it will not throw).\n *\n * @param {Alarm} alarm - The alarm to clear.\n */\nexport default function clearAlarm(alarm) {\n\tif (alarm instanceof Alarm) {\n\t\talarm.clear();\n\t}\n}\n",
     "static": true,
     "longname": "/home/aureooms/dev/js/packages/set-alarm/src/clearAlarm.js",
     "access": "public",
@@ -755,15 +755,18 @@
     "export": true,
     "importPath": "set-alarm/src/clearAlarm.js",
     "importStyle": "clearAlarm",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
+    "description": "Prevents an alarm from triggering. Obviously, this does not work if the\nalarm has triggered before calling `clearAlarm`. However, it is guaranteed\nthat if `clearAlarm` is called before `alarm` has triggered, `alarm` will\nnever trigger.\n\nDoes nothing on invalid arguments (it will not throw).",
+    "lineNumber": 13,
     "params": [
       {
-        "name": "alarm",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Alarm"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "alarm",
+        "description": "The alarm to clear."
       }
     ],
     "return": null
@@ -783,7 +786,7 @@
     "__docId__": 62,
     "kind": "file",
     "name": "src/setAlarm.js",
-    "content": "import {TOLERANCE_LEFT} from './TOLERANCE.js';\nimport Alarm from './Alarm.js';\n\n// See:\n//  - https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#maximum_delay_value\n//  - https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values\nconst DELAY_MAX_FOR_SET_TIMEOUT = 2147483647;\nconst FACTOR_OVERTAKE = 0.1; // We try to be ahead of the event by that much.\nconst FACTOR_COMPLETION = 1 - FACTOR_OVERTAKE;\nconst THRESHOLD_DRIFT = 100; // We assume no drift that large will ever occur.\nconst THRESHOLD_FINAL_COUNTDOWN = THRESHOLD_DRIFT / FACTOR_OVERTAKE;\n\n/**\n * We workaround two issues raised by a naive setTimeout implementation:\n *   - the delay parameter is a 32-bit signed integer\n *   - the resolution time of setAlarm could be imprecise with large delays\n *   (because of setInterval/setTimeout drift).\n */\nexport default function setAlarm(callback, date, ...rest) {\n\tconst delay = () => date - Date.now();\n\tconst alarm = new Alarm();\n\n\tconst iter = () => {\n\t\tconst _delay = delay();\n\t\tif (_delay >= THRESHOLD_FINAL_COUNTDOWN) {\n\t\t\tconst step = Math.min(\n\t\t\t\tDELAY_MAX_FOR_SET_TIMEOUT,\n\t\t\t\t_delay * FACTOR_COMPLETION,\n\t\t\t);\n\t\t\talarm.record(setTimeout(iter, step));\n\t\t} else if (_delay > -TOLERANCE_LEFT) {\n\t\t\t// We make sure to queue the final callback only if we respect the\n\t\t\t// left tolerance\n\t\t\talarm.record(setTimeout(iter, _delay));\n\t\t} else {\n\t\t\t// Here we recompute delay() to get the most accurate delay for the\n\t\t\t// last setTimeout call.\n\t\t\talarm.record(setTimeout(callback, delay(), ...rest));\n\t\t}\n\t};\n\n\talarm.record(setTimeout(iter, 0));\n\treturn alarm;\n}\n",
+    "content": "import {TOLERANCE_LEFT} from './TOLERANCE.js';\nimport Alarm from './Alarm.js';\n\n// See:\n//  - https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#maximum_delay_value\n//  - https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values\nconst DELAY_MAX_FOR_SET_TIMEOUT = 2147483647;\nconst FACTOR_OVERTAKE = 0.1; // We try to be ahead of the event by that much.\nconst FACTOR_COMPLETION = 1 - FACTOR_OVERTAKE;\nconst THRESHOLD_DRIFT = 100; // We assume no drift that large will ever occur.\nconst THRESHOLD_FINAL_COUNTDOWN = THRESHOLD_DRIFT / FACTOR_OVERTAKE;\n\n/**\n * Set an alarm to trigger at a given date/time specified by a Date object.\n * When triggered, the alarm will call the callback function with passed\n * arguments, if any.\n *\n * We guarantee that the alarm will not trigger before the given date/time.\n * We try to trigger the alarm as soom as the given date/time has passed.\n *\n * Note that we workaround two issues raised by a naive setTimeout\n * implementation:\n *   1. the delay parameter is a 32-bit signed integer\n *   2. taking the first point into account, the resolution time of setAlarm\n *   could be imprecise with large delays (because of setInterval/setTimeout\n *   drift).\n *\n * @param {Function} callback - The Function to call when the alarm triggers.\n * @param {Date} date - The date/time at which to trigger the alarm.\n * @param {...any} rest - The arguments to call the callback with.\n * @returns {Alarm} The alarm object.\n */\nexport default function setAlarm(callback, date, ...rest) {\n\tconst delay = () => date - Date.now();\n\tconst alarm = new Alarm();\n\n\tconst iter = () => {\n\t\tconst _delay = delay();\n\t\tif (_delay >= THRESHOLD_FINAL_COUNTDOWN) {\n\t\t\tconst step = Math.min(\n\t\t\t\tDELAY_MAX_FOR_SET_TIMEOUT,\n\t\t\t\t_delay * FACTOR_COMPLETION,\n\t\t\t);\n\t\t\talarm.record(setTimeout(iter, step));\n\t\t} else if (_delay > -TOLERANCE_LEFT) {\n\t\t\t// We make sure to queue the final callback only if we respect the\n\t\t\t// left tolerance\n\t\t\talarm.record(setTimeout(iter, _delay));\n\t\t} else {\n\t\t\t// Here we recompute delay() to get the most accurate delay for the\n\t\t\t// last setTimeout call.\n\t\t\talarm.record(setTimeout(callback, delay(), ...rest));\n\t\t}\n\t};\n\n\talarm.record(setTimeout(iter, 0));\n\treturn alarm;\n}\n",
     "static": true,
     "longname": "/home/aureooms/dev/js/packages/set-alarm/src/setAlarm.js",
     "access": "public",
@@ -908,33 +911,53 @@
     "export": true,
     "importPath": "set-alarm/src/setAlarm.js",
     "importStyle": "setAlarm",
-    "description": "We workaround two issues raised by a naive setTimeout implementation:\n  - the delay parameter is a 32-bit signed integer\n  - the resolution time of setAlarm could be imprecise with large delays\n  (because of setInterval/setTimeout drift).",
-    "lineNumber": 19,
+    "description": "Set an alarm to trigger at a given date/time specified by a Date object.\nWhen triggered, the alarm will call the callback function with passed\narguments, if any.\n\nWe guarantee that the alarm will not trigger before the given date/time.\nWe try to trigger the alarm as soom as the given date/time has passed.\n\nNote that we workaround two issues raised by a naive setTimeout\nimplementation:\n  1. the delay parameter is a 32-bit signed integer\n  2. taking the first point into account, the resolution time of setAlarm\n  could be imprecise with large delays (because of setInterval/setTimeout\n  drift).",
+    "lineNumber": 33,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Alarm} The alarm object."
+      }
+    ],
     "params": [
       {
-        "name": "callback",
+        "nullable": null,
         "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "date",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "rest",
-        "types": [
-          "...*"
+          "Function"
         ],
-        "spread": true
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "The Function to call when the alarm triggers."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Date"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "date",
+        "description": "The date/time at which to trigger the alarm."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "...any"
+        ],
+        "spread": true,
+        "optional": false,
+        "name": "rest",
+        "description": "The arguments to call the callback with."
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Alarm"
+      ],
+      "spread": false,
+      "description": "The alarm object."
     }
   },
   {

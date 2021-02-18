@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 130,
+  "end": 496,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 8,
+      "line": 18,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 130,
+    "end": 496,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 8,
+        "line": 18,
         "column": 0
       }
     },
@@ -95,52 +95,71 @@
             "raw": "'./Alarm.js'"
           },
           "value": "./Alarm.js"
-        }
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * Prevents an alarm from triggering. Obviously, this does not work if the\n * alarm has triggered before calling `clearAlarm`. However, it is guaranteed\n * that if `clearAlarm` is called before `alarm` has triggered, `alarm` will\n * never trigger.\n *\n * Does nothing on invalid arguments (it will not throw).\n *\n * @param {Alarm} alarm - The alarm to clear.\n ",
+            "start": 33,
+            "end": 398,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 12,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 33,
-        "end": 129,
+        "start": 399,
+        "end": 495,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 13,
             "column": 0
           },
           "end": {
-            "line": 7,
+            "line": 17,
             "column": 1
           }
         },
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 48,
-          "end": 129,
+          "start": 414,
+          "end": 495,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 13,
               "column": 15
             },
             "end": {
-              "line": 7,
+              "line": 17,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 57,
-            "end": 67,
+            "start": 423,
+            "end": 433,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 13,
                 "column": 24
               },
               "end": {
-                "line": 3,
+                "line": 13,
                 "column": 34
               },
               "identifierName": "clearAlarm"
             },
-            "name": "clearAlarm"
+            "name": "clearAlarm",
+            "leadingComments": null
           },
           "generator": false,
           "expression": false,
@@ -148,15 +167,15 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 68,
-              "end": 73,
+              "start": 434,
+              "end": 439,
               "loc": {
                 "start": {
-                  "line": 3,
+                  "line": 13,
                   "column": 35
                 },
                 "end": {
-                  "line": 3,
+                  "line": 13,
                   "column": 40
                 },
                 "identifierName": "alarm"
@@ -166,58 +185,58 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 75,
-            "end": 129,
+            "start": 441,
+            "end": 495,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 13,
                 "column": 42
               },
               "end": {
-                "line": 7,
+                "line": 17,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "IfStatement",
-                "start": 78,
-                "end": 127,
+                "start": 444,
+                "end": 493,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 14,
                     "column": 1
                   },
                   "end": {
-                    "line": 6,
+                    "line": 16,
                     "column": 2
                   }
                 },
                 "test": {
                   "type": "BinaryExpression",
-                  "start": 82,
-                  "end": 104,
+                  "start": 448,
+                  "end": 470,
                   "loc": {
                     "start": {
-                      "line": 4,
+                      "line": 14,
                       "column": 5
                     },
                     "end": {
-                      "line": 4,
+                      "line": 14,
                       "column": 27
                     }
                   },
                   "left": {
                     "type": "Identifier",
-                    "start": 82,
-                    "end": 87,
+                    "start": 448,
+                    "end": 453,
                     "loc": {
                       "start": {
-                        "line": 4,
+                        "line": 14,
                         "column": 5
                       },
                       "end": {
-                        "line": 4,
+                        "line": 14,
                         "column": 10
                       },
                       "identifierName": "alarm"
@@ -227,15 +246,15 @@
                   "operator": "instanceof",
                   "right": {
                     "type": "Identifier",
-                    "start": 99,
-                    "end": 104,
+                    "start": 465,
+                    "end": 470,
                     "loc": {
                       "start": {
-                        "line": 4,
+                        "line": 14,
                         "column": 22
                       },
                       "end": {
-                        "line": 4,
+                        "line": 14,
                         "column": 27
                       },
                       "identifierName": "Alarm"
@@ -245,72 +264,72 @@
                 },
                 "consequent": {
                   "type": "BlockStatement",
-                  "start": 106,
-                  "end": 127,
+                  "start": 472,
+                  "end": 493,
                   "loc": {
                     "start": {
-                      "line": 4,
+                      "line": 14,
                       "column": 29
                     },
                     "end": {
-                      "line": 6,
+                      "line": 16,
                       "column": 2
                     }
                   },
                   "body": [
                     {
                       "type": "ExpressionStatement",
-                      "start": 110,
-                      "end": 124,
+                      "start": 476,
+                      "end": 490,
                       "loc": {
                         "start": {
-                          "line": 5,
+                          "line": 15,
                           "column": 2
                         },
                         "end": {
-                          "line": 5,
+                          "line": 15,
                           "column": 16
                         }
                       },
                       "expression": {
                         "type": "CallExpression",
-                        "start": 110,
-                        "end": 123,
+                        "start": 476,
+                        "end": 489,
                         "loc": {
                           "start": {
-                            "line": 5,
+                            "line": 15,
                             "column": 2
                           },
                           "end": {
-                            "line": 5,
+                            "line": 15,
                             "column": 15
                           }
                         },
                         "callee": {
                           "type": "MemberExpression",
-                          "start": 110,
-                          "end": 121,
+                          "start": 476,
+                          "end": 487,
                           "loc": {
                             "start": {
-                              "line": 5,
+                              "line": 15,
                               "column": 2
                             },
                             "end": {
-                              "line": 5,
+                              "line": 15,
                               "column": 13
                             }
                           },
                           "object": {
                             "type": "Identifier",
-                            "start": 110,
-                            "end": 115,
+                            "start": 476,
+                            "end": 481,
                             "loc": {
                               "start": {
-                                "line": 5,
+                                "line": 15,
                                 "column": 2
                               },
                               "end": {
-                                "line": 5,
+                                "line": 15,
                                 "column": 7
                               },
                               "identifierName": "alarm"
@@ -319,15 +338,15 @@
                           },
                           "property": {
                             "type": "Identifier",
-                            "start": 116,
-                            "end": 121,
+                            "start": 482,
+                            "end": 487,
                             "loc": {
                               "start": {
-                                "line": 5,
+                                "line": 15,
                                 "column": 8
                               },
                               "end": {
-                                "line": 5,
+                                "line": 15,
                                 "column": 13
                               },
                               "identifierName": "clear"
@@ -347,14 +366,66 @@
             ],
             "directives": []
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * Prevents an alarm from triggering. Obviously, this does not work if the\n * alarm has triggered before calling `clearAlarm`. However, it is guaranteed\n * that if `clearAlarm` is called before `alarm` has triggered, `alarm` will\n * never trigger.\n *\n * Does nothing on invalid arguments (it will not throw).\n *\n * @param {Alarm} alarm - The alarm to clear.\n ",
+              "start": 33,
+              "end": 398,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 0
+                },
+                "end": {
+                  "line": 12,
+                  "column": 3
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * Prevents an alarm from triggering. Obviously, this does not work if the\n * alarm has triggered before calling `clearAlarm`. However, it is guaranteed\n * that if `clearAlarm` is called before `alarm` has triggered, `alarm` will\n * never trigger.\n *\n * Does nothing on invalid arguments (it will not throw).\n *\n * @param {Alarm} alarm - The alarm to clear.\n ",
+            "start": 33,
+            "end": 398,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 12,
+                "column": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Prevents an alarm from triggering. Obviously, this does not work if the\n * alarm has triggered before calling `clearAlarm`. However, it is guaranteed\n * that if `clearAlarm` is called before `alarm` has triggered, `alarm` will\n * never trigger.\n *\n * Does nothing on invalid arguments (it will not throw).\n *\n * @param {Alarm} alarm - The alarm to clear.\n ",
+      "start": 33,
+      "end": 398,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -490,6 +561,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * Prevents an alarm from triggering. Obviously, this does not work if the\n * alarm has triggered before calling `clearAlarm`. However, it is guaranteed\n * that if `clearAlarm` is called before `alarm` has triggered, `alarm` will\n * never trigger.\n *\n * Does nothing on invalid arguments (it will not throw).\n *\n * @param {Alarm} alarm - The alarm to clear.\n ",
+      "start": 33,
+      "end": 398,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -504,15 +591,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 33,
-      "end": 39,
+      "start": 399,
+      "end": 405,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 13,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 13,
           "column": 6
         }
       }
@@ -532,15 +619,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 40,
-      "end": 47,
+      "start": 406,
+      "end": 413,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 13,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 13,
           "column": 14
         }
       }
@@ -559,15 +646,15 @@
         "binop": null
       },
       "value": "function",
-      "start": 48,
-      "end": 56,
+      "start": 414,
+      "end": 422,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 13,
           "column": 15
         },
         "end": {
-          "line": 3,
+          "line": 13,
           "column": 23
         }
       }
@@ -585,15 +672,15 @@
         "binop": null
       },
       "value": "clearAlarm",
-      "start": 57,
-      "end": 67,
+      "start": 423,
+      "end": 433,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 13,
           "column": 24
         },
         "end": {
-          "line": 3,
+          "line": 13,
           "column": 34
         }
       }
@@ -610,15 +697,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 67,
-      "end": 68,
+      "start": 433,
+      "end": 434,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 13,
           "column": 34
         },
         "end": {
-          "line": 3,
+          "line": 13,
           "column": 35
         }
       }
@@ -636,15 +723,15 @@
         "binop": null
       },
       "value": "alarm",
-      "start": 68,
-      "end": 73,
+      "start": 434,
+      "end": 439,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 13,
           "column": 35
         },
         "end": {
-          "line": 3,
+          "line": 13,
           "column": 40
         }
       }
@@ -661,15 +748,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 73,
-      "end": 74,
+      "start": 439,
+      "end": 440,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 13,
           "column": 40
         },
         "end": {
-          "line": 3,
+          "line": 13,
           "column": 41
         }
       }
@@ -686,15 +773,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 75,
-      "end": 76,
+      "start": 441,
+      "end": 442,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 13,
           "column": 42
         },
         "end": {
-          "line": 3,
+          "line": 13,
           "column": 43
         }
       }
@@ -714,15 +801,15 @@
         "updateContext": null
       },
       "value": "if",
-      "start": 78,
-      "end": 80,
+      "start": 444,
+      "end": 446,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 14,
           "column": 1
         },
         "end": {
-          "line": 4,
+          "line": 14,
           "column": 3
         }
       }
@@ -739,15 +826,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 81,
-      "end": 82,
+      "start": 447,
+      "end": 448,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 14,
           "column": 4
         },
         "end": {
-          "line": 4,
+          "line": 14,
           "column": 5
         }
       }
@@ -765,15 +852,15 @@
         "binop": null
       },
       "value": "alarm",
-      "start": 82,
-      "end": 87,
+      "start": 448,
+      "end": 453,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 14,
           "column": 5
         },
         "end": {
-          "line": 4,
+          "line": 14,
           "column": 10
         }
       }
@@ -793,15 +880,15 @@
         "updateContext": null
       },
       "value": "instanceof",
-      "start": 88,
-      "end": 98,
+      "start": 454,
+      "end": 464,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 14,
           "column": 11
         },
         "end": {
-          "line": 4,
+          "line": 14,
           "column": 21
         }
       }
@@ -819,15 +906,15 @@
         "binop": null
       },
       "value": "Alarm",
-      "start": 99,
-      "end": 104,
+      "start": 465,
+      "end": 470,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 14,
           "column": 22
         },
         "end": {
-          "line": 4,
+          "line": 14,
           "column": 27
         }
       }
@@ -844,15 +931,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 104,
-      "end": 105,
+      "start": 470,
+      "end": 471,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 14,
           "column": 27
         },
         "end": {
-          "line": 4,
+          "line": 14,
           "column": 28
         }
       }
@@ -869,15 +956,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 106,
-      "end": 107,
+      "start": 472,
+      "end": 473,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 14,
           "column": 29
         },
         "end": {
-          "line": 4,
+          "line": 14,
           "column": 30
         }
       }
@@ -895,15 +982,15 @@
         "binop": null
       },
       "value": "alarm",
-      "start": 110,
-      "end": 115,
+      "start": 476,
+      "end": 481,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 15,
           "column": 2
         },
         "end": {
-          "line": 5,
+          "line": 15,
           "column": 7
         }
       }
@@ -921,15 +1008,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 115,
-      "end": 116,
+      "start": 481,
+      "end": 482,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 15,
           "column": 7
         },
         "end": {
-          "line": 5,
+          "line": 15,
           "column": 8
         }
       }
@@ -947,15 +1034,15 @@
         "binop": null
       },
       "value": "clear",
-      "start": 116,
-      "end": 121,
+      "start": 482,
+      "end": 487,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 15,
           "column": 8
         },
         "end": {
-          "line": 5,
+          "line": 15,
           "column": 13
         }
       }
@@ -972,15 +1059,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 121,
-      "end": 122,
+      "start": 487,
+      "end": 488,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 15,
           "column": 13
         },
         "end": {
-          "line": 5,
+          "line": 15,
           "column": 14
         }
       }
@@ -997,15 +1084,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 122,
-      "end": 123,
+      "start": 488,
+      "end": 489,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 15,
           "column": 14
         },
         "end": {
-          "line": 5,
+          "line": 15,
           "column": 15
         }
       }
@@ -1023,15 +1110,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 123,
-      "end": 124,
+      "start": 489,
+      "end": 490,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 15,
           "column": 15
         },
         "end": {
-          "line": 5,
+          "line": 15,
           "column": 16
         }
       }
@@ -1048,15 +1135,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 126,
-      "end": 127,
+      "start": 492,
+      "end": 493,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 16,
           "column": 1
         },
         "end": {
-          "line": 6,
+          "line": 16,
           "column": 2
         }
       }
@@ -1073,15 +1160,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 128,
-      "end": 129,
+      "start": 494,
+      "end": 495,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 7,
+          "line": 17,
           "column": 1
         }
       }
@@ -1099,15 +1186,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 130,
-      "end": 130,
+      "start": 496,
+      "end": 496,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 18,
           "column": 0
         }
       }

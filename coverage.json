@@ -1,7 +1,7 @@
 {
-  "coverage": "6.66%",
+  "coverage": "13.33%",
   "expectCount": 15,
-  "actualCount": 1,
+  "actualCount": 2,
   "files": {
     "src/Alarm.js": {
       "expectCount": 5,
@@ -25,10 +25,8 @@
     },
     "src/clearAlarm.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        3
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "src/setAlarm.js": {
       "expectCount": 6,

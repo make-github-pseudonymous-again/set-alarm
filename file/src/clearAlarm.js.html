@@ -42,6 +42,16 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/clearAlarm.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Alarm from &apos;./Alarm.js&apos;;
 
+/**
+ * Prevents an alarm from triggering. Obviously, this does not work if the
+ * alarm has triggered before calling `clearAlarm`. However, it is guaranteed
+ * that if `clearAlarm` is called before `alarm` has triggered, `alarm` will
+ * never trigger.
+ *
+ * Does nothing on invalid arguments (it will not throw).
+ *
+ * @param {Alarm} alarm - The alarm to clear.
+ */
 export default function clearAlarm(alarm) {
 	if (alarm instanceof Alarm) {
 		alarm.clear();

@@ -21,8 +21,6 @@ See [docs](https://aureooms.github.io/set-alarm/index.html).
 [![Code issues](https://img.shields.io/codeclimate/issues/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/issues)
 [![Code maintainability](https://img.shields.io/codeclimate/maintainability/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/trends/churn)
 [![Code coverage (cov)](https://img.shields.io/codecov/c/gh/aureooms/set-alarm/main.svg)](https://codecov.io/gh/aureooms/set-alarm)
-<!--[![Code coverage (alls)](https://img.shields.io/coveralls/github/aureooms/set-alarm/main.svg)](https://coveralls.io/r/aureooms/set-alarm)-->
-<!--[![Code coverage (clim)](https://img.shields.io/codeclimate/coverage/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/trends/test_coverage_new_code)-->
 [![Code technical debt](https://img.shields.io/codeclimate/tech-debt/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/trends/technical_debt)
 [![Documentation](https://aureooms.github.io/set-alarm/badge.svg)](https://aureooms.github.io/set-alarm/source.html)
 [![Package size](https://img.shields.io/bundlephobia/minzip/set-alarm)](https://bundlephobia.com/result?p=set-alarm)

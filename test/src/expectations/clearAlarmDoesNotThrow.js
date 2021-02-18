@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import {clearAlarm} from '../../src/index.js';
+import {clearAlarm} from '../../../src/index.js';
 
 const clearAlarmDoesNotThrow = (t, target) => {
 	try {

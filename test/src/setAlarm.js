@@ -9,8 +9,14 @@ const macro = (t, delay) => {
 	const check = () => {
 		const triggeredAt = new Date();
 		const delta = triggeredAt - expected;
-		t.true(delta >= TOLERANCE_LEFT);
-		t.true(delta <= TOLERANCE_RIGHT);
+		t.true(
+			delta >= TOLERANCE_LEFT,
+			`TOLERANCE_LEFT: ${delta} >= ${TOLERANCE_LEFT}`,
+		);
+		t.true(
+			delta <= TOLERANCE_RIGHT,
+			`TOLERANCE_RIGHT: ${delta} <= ${TOLERANCE_RIGHT}`,
+		);
 		t.end();
 	};
 

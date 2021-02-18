@@ -11,10 +11,24 @@ const THRESHOLD_DRIFT = 100; // We assume no drift that large will ever occur.
 const THRESHOLD_FINAL_COUNTDOWN = THRESHOLD_DRIFT / FACTOR_OVERTAKE;
 
 /**
- * We workaround two issues raised by a naive setTimeout implementation:
- *   - the delay parameter is a 32-bit signed integer
- *   - the resolution time of setAlarm could be imprecise with large delays
- *   (because of setInterval/setTimeout drift).
+ * Set an alarm to trigger at a given date/time specified by a Date object.
+ * When triggered, the alarm will call the callback function with passed
+ * arguments, if any.
+ *
+ * We guarantee that the alarm will not trigger before the given date/time.
+ * We try to trigger the alarm as soom as the given date/time has passed.
+ *
+ * Note that we workaround two issues raised by a naive setTimeout
+ * implementation:
+ *   1. the delay parameter is a 32-bit signed integer
+ *   2. taking the first point into account, the resolution time of setAlarm
+ *   could be imprecise with large delays (because of setInterval/setTimeout
+ *   drift).
+ *
+ * @param {Function} callback - The Function to call when the alarm triggers.
+ * @param {Date} date - The date/time at which to trigger the alarm.
+ * @param {...any} rest - The arguments to call the callback with.
+ * @returns {Alarm} The alarm object.
  */
 export default function setAlarm(callback, date, ...rest) {
 	const delay = () => date - Date.now();

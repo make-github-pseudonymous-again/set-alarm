@@ -1,18 +1,8 @@
 # Usage
 
-> :warning: The code requires `regeneratorRuntime` to be defined, for instance by importing
-> [regenerator-runtime/runtime](https://www.npmjs.com/package/regenerator-runtime).
-
-First, require the polyfill at the entry point of your application
+Import the library where needed
 ```js
-require( 'regenerator-runtime/runtime' );
+const {setAlarm, clearAlarm} = require( 'set-alarm' ) ;
 // or
-import 'regenerator-runtime/runtime.js' ;
-```
-
-Then, import the library where needed
-```js
-const setAlarm = require( 'set-alarm' ) ;
-// or
-import * as setAlarm from 'set-alarm' ;
+import {setAlarm, clearAlarm} from 'set-alarm' ;
 ```

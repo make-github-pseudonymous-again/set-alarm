@@ -8,9 +8,6 @@ See [docs](https://aureooms.github.io/set-alarm/index.html).
 > :building_construction: Caveat emptor! This is work in progress. Code may be
 > working. Documentation may be present. Coherence may be. Maybe.
 
-> :warning: The code requires `regeneratorRuntime` to be defined, for instance by importing
-> [regenerator-runtime/runtime](https://www.npmjs.com/package/regenerator-runtime).
-
 ```js
 import {setAlarm, clearAlarm, Alarm} from 'set-alarm';
 const firstOfApril2021AtNoonZuluTime = new Date('2021-04-01T12:00Z');

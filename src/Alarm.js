@@ -1,13 +1,13 @@
 export default class Alarm {
-	constructor(handler) {
-		this._handler = handler;
+	constructor(handle) {
+		this._handle = handle;
 	}
 
-	record(handler) {
-		// NB: This works even if this._handler was created with setInterval.
+	record(handle) {
+		// NB: This works even if this._handle was created with setInterval.
 		// See: https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-setinterval
-		clearTimeout(this._handler);
-		this._handler = handler;
+		clearTimeout(this._handle);
+		this._handle = handle;
 	}
 
 	clear() {

@@ -1,7 +1,8 @@
 :alarm_clock: [set-alarm](https://aureooms.github.io/set-alarm)
 ==
 
-Call Function on a given Date.
+Call a Function on a given Date.
+The API tries to mimic [the `setTimeout` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) as best as possible.
 See [docs](https://aureooms.github.io/set-alarm/index.html).
 
 > :building_construction: Caveat emptor! This is work in progress. Code may be
@@ -9,6 +10,18 @@ See [docs](https://aureooms.github.io/set-alarm/index.html).
 
 > :warning: The code requires `regeneratorRuntime` to be defined, for instance by importing
 > [regenerator-runtime/runtime](https://www.npmjs.com/package/regenerator-runtime).
+
+```js
+import {setAlarm, clearAlarm, Alarm} from 'set-alarm';
+const firstOfApril2021AtNoonZuluTime = new Date('2021-04-01T12:00Z');
+const alarm = setAlarm(() => console.debug(new Date() - firstOfApril2021AtNoonZuluTime), firstOfApril2021AtNoonZuluTime);
+alarm instanceof Alarm; // true
+clearAlarm(alarm); // to unenroll the callback
+// Otherwise:
+//  - if date is in the future: should trigger approximately at or just after the date, logging a small nonnegative number
+//  - if date is in the past: will trigger anyway logging a possibly large positive number
+// It is up to you to ignore alarms for past dates (similar to `setTimeout(..., -2389324)`).
+```
 
 [![License](https://img.shields.io/github/license/aureooms/set-alarm.svg)](https://raw.githubusercontent.com/aureooms/set-alarm/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/set-alarm.svg)](https://www.npmjs.org/package/set-alarm)

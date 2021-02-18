@@ -1,8 +1,7 @@
 import test from 'ava';
 
+import date from '../fixtures/date.js';
 import {setAlarm, TOLERANCE} from '../../src/index.js';
-
-const date = (delay) => new Date(Date.now() + delay);
 
 const macro = (t, delay) => {
 	const check = () => {

@@ -1,4 +1,4 @@
-[set-alarm](https://aureooms.github.io/set-alarm)
+:alarm_clock: [set-alarm](https://aureooms.github.io/set-alarm)
 ==
 
 Call Function on a given Date.

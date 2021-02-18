@@ -1,7 +1,7 @@
 {
   "name": "set-alarm",
   "description": "Call Function on a given Date",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "aureooms",
   "ava": {
     "files": [
@@ -100,7 +100,14 @@
     "lib"
   ],
   "homepage": "https://aureooms.github.io/set-alarm",
-  "keywords": ["Date", "Function", "alarm", "callback", "setAlarm", "setTimeout"],
+  "keywords": [
+    "Date",
+    "Function",
+    "alarm",
+    "callback",
+    "setAlarm",
+    "setTimeout"
+  ],
   "license": "AGPL-3.0",
   "main": "lib/index.js",
   "prettier": {

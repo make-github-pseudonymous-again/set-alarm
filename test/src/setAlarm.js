@@ -1,8 +1,7 @@
 import test from 'ava';
 
-import {setAlarm} from '../../src/index.js';
+import {setAlarm, TOLERANCE} from '../../src/index.js';
 
-const TOLERANCE = 10; // 10 ms
 const date = (delay) => new Date(Date.now() + delay);
 
 const macro = (t, delay) => {

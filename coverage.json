@@ -1,0 +1,45 @@
+{
+  "coverage": "6.66%",
+  "expectCount": 15,
+  "actualCount": 1,
+  "files": {
+    "src/Alarm.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        6,
+        13
+      ]
+    },
+    "src/TOLERANCE.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        4
+      ]
+    },
+    "src/clearAlarm.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/setAlarm.js": {
+      "expectCount": 6,
+      "actualCount": 1,
+      "undocumentLines": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    }
+  }
+}

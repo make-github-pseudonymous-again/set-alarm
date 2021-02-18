@@ -1,13 +1,12 @@
-import clearAlarm from './clearAlarm' ;
-import setAlarm from './setAlarm' ;
+import Alarm from './Alarm.js';
+import clearAlarm from './clearAlarm.js';
+import setAlarm from './setAlarm.js';
 
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
-	clearAlarm ,
-	setAlarm ,
-} ;
+	Alarm,
+	clearAlarm,
+	setAlarm,
+};
 
-export {
-	clearAlarm ,
-	setAlarm ,
-} ;
+export {Alarm, clearAlarm, setAlarm};

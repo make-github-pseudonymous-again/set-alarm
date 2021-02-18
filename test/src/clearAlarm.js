@@ -22,7 +22,13 @@ const macro = (t, delay) => {
 	else setTimeout(clear, clearDelay);
 
 	const check = () => {
-		t.pass();
+		try {
+			clearAlarm(alarm); // Checks that clearing twice does not throw.
+			t.pass();
+		} catch {
+			t.fail();
+		}
+
 		t.end();
 	};
 

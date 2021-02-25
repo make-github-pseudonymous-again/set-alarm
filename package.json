@@ -1,7 +1,7 @@
 {
   "name": "set-alarm",
   "description": "Call Function on a given Date",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "aureooms",
   "ava": {
     "files": [
@@ -17,7 +17,10 @@
       [
         "@babel/preset-env",
         {
-          "targets": ["defaults", "maintained node versions"]
+          "targets": [
+            "defaults",
+            "maintained node versions"
+          ]
         }
       ]
     ],

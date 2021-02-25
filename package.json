@@ -150,8 +150,8 @@
   "scripts": {
     "build": "NODE_ENV=production microbundle",
     "cover": "nyc --reporter=lcov npm test",
-    "dev": "npm run lint -- --fix && npm run cover -- -- -t --fail-fast",
     "debug": "NODE_ENV=debug npm run test -- -st --fail-fast",
+    "dev": "npm run lint -- --fix && npm run cover -- -- -t --fail-fast",
     "esdoc": "esdoc",
     "lint": "xo",
     "prepare": "npm run build",

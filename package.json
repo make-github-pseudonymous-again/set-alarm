@@ -91,13 +91,14 @@
     "esdoc-inject-script-plugin": "1.0.0",
     "esdoc-inject-style-plugin": "1.0.0",
     "esdoc-standard-plugin": "1.0.0",
+    "microbundle": "^0.13.0",
     "np": "7.4.0",
     "nyc": "15.1.0",
     "power-assert": "1.6.1",
     "xo": "0.38.1"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "homepage": "https://aureooms.github.io/set-alarm",
   "keywords": [
@@ -109,7 +110,11 @@
     "setTimeout"
   ],
   "license": "AGPL-3.0",
-  "main": "lib/index.js",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "exports": "dist/index.modern.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
   "prettier": {
     "trailingComma": "all"
   },
@@ -118,7 +123,7 @@
     "url": "https://github.com/aureooms/set-alarm"
   },
   "scripts": {
-    "build": "babel --delete-dir-on-start --env-name production src -d lib",
+    "build": "NODE_ENV=production microbundle",
     "cover": "nyc --reporter=lcov npm test",
     "dev": "npm run lint -- --fix && npm run cover -- -- -t --fail-fast",
     "esdoc": "esdoc",

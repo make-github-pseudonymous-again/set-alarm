@@ -41,7 +41,7 @@
     "lint-config": "fixpack --dryRun",
     "lint-config-and-fix": "npm run lint-config -- --no-dryRun",
     "prepare": "npm run build",
-    "release": "np",
+    "release": "np --message ':hatching_chick: v%s'",
     "test": "ava",
     "travis": "npm run lint && npm run cover"
   },

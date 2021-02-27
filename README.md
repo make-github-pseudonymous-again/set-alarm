@@ -6,15 +6,28 @@ The API tries to mimic [the `setTimeout` API](https://developer.mozilla.org/en-U
 See [docs](https://aureooms.github.io/set-alarm/index.html).
 
 ```js
-import {setAlarm, clearAlarm, Alarm} from 'set-alarm';
+import {
+	setAlarm,
+	clearAlarm,
+	Alarm
+} from 'set-alarm';
+
 const firstOfApril2021AtNoonZuluTime = new Date('2021-04-01T12:00Z');
-const alarm = setAlarm(() => console.debug(new Date() - firstOfApril2021AtNoonZuluTime), firstOfApril2021AtNoonZuluTime);
+
+// Set an alarm
+const alarm = setAlarm(() => {
+	console.debug(new Date() - firstOfApril2021AtNoonZuluTime);
+}, firstOfApril2021AtNoonZuluTime);
+
 alarm instanceof Alarm; // true
-clearAlarm(alarm); // to unenroll the callback
-// Otherwise:
-//  - if date is in the future: should trigger approximately at or just after the date, logging a small nonnegative number
+
+// Two scenarios:
+//  - if date is in the future: should trigger at or just after the date, logging a small nonnegative number
 //  - if date is in the past: will trigger anyway logging a possibly large positive number
 // It is up to you to ignore alarms for past dates (similar to `setTimeout(..., -2389324)`).
+
+// OR Unenroll the callback (and the alarm will not trigger)
+clearAlarm(alarm); // undefined
 ```
 
 [![License](https://img.shields.io/github/license/aureooms/set-alarm.svg)](https://raw.githubusercontent.com/aureooms/set-alarm/main/LICENSE)

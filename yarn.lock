@@ -960,7 +960,7 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@commitlint/cli@^12.0.0":
+"@commitlint/cli@12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-12.0.0.tgz#bd389db0718aa4a7dfb515ea890776223ea0c60f"
   integrity sha512-9jxKu6PmBUeQIbSD7olsv8wSqFnFsGwKMN9sL5T1d5YZDCocFMgfeyDGtOwuiATsox7Mje+NucQ4zU1y0530Dw==
@@ -976,7 +976,7 @@
     resolve-global "1.0.0"
     yargs "^16.0.0"
 
-"@commitlint/config-conventional@^12.0.0":
+"@commitlint/config-conventional@12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-12.0.0.tgz#3244957b87b92dc2f4feb46059cdeb950783198f"
   integrity sha512-zjTeCBlHEP0syW6QedRSxOiafYeuOol9vIXZ89uhKMhyejaKxdAnS3SBMN4fYiSFChsZEl+VshJeZDtUFkCd7Q==
@@ -2305,7 +2305,7 @@ builtins@^1.0.3:
   resolved "https://registry.yarnpkg.com/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
   integrity sha1-y5T662HIaWRR2zZTThQi+U8K7og=
 
-c8@^7.6.0:
+c8@7.6.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/c8/-/c8-7.6.0.tgz#0d3b1d01b662beea51a40be33db830a48edd5d3d"
   integrity sha512-cQYCSepX54npWqOKAmRWwOnmN2XPyShpP3Hnw2VoaB/8fdiIke72tKClHLim4U5kSTFc1vjit0771oe+BL7qHw==

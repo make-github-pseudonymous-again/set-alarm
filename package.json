@@ -1,7 +1,7 @@
 {
   "name": "set-alarm",
   "description": "Call a Function on a given Date",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "AGPL-3.0",
   "author": "aureooms",
   "homepage": "https://aureooms.github.io/set-alarm",

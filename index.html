@@ -42,19 +42,32 @@
 <div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="-alarm-clock---a-href--https---aureooms-github-io-set-alarm--set-alarm--a-">:alarm_clock: <a href="https://aureooms.github.io/set-alarm">set-alarm</a></h1><p>Call a <code>Function</code> on a given <code>Date</code>.
 The API tries to mimic <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout">the <code>setTimeout</code> API</a> as best as possible.
 See <a href="https://aureooms.github.io/set-alarm/index.html">docs</a>.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">import {setAlarm, clearAlarm, Alarm} from &apos;set-alarm&apos;;
+<pre><code class="lang-js"><code class="source-code prettyprint">import {
+    setAlarm,
+    clearAlarm,
+    Alarm
+} from &apos;set-alarm&apos;;
+
 const firstOfApril2021AtNoonZuluTime = new Date(&apos;2021-04-01T12:00Z&apos;);
-const alarm = setAlarm(() =&gt; console.debug(new Date() - firstOfApril2021AtNoonZuluTime), firstOfApril2021AtNoonZuluTime);
+
+// Set an alarm
+const alarm = setAlarm(() =&gt; {
+    console.debug(new Date() - firstOfApril2021AtNoonZuluTime);
+}, firstOfApril2021AtNoonZuluTime);
+
 alarm instanceof Alarm; // true
-clearAlarm(alarm); // to unenroll the callback
-// Otherwise:
-//  - if date is in the future: should trigger approximately at or just after the date, logging a small nonnegative number
+
+// Two scenarios:
+//  - if date is in the future: should trigger at or just after the date, logging a small nonnegative number
 //  - if date is in the past: will trigger anyway logging a possibly large positive number
-// It is up to you to ignore alarms for past dates (similar to `setTimeout(..., -2389324)`).</code>
+// It is up to you to ignore alarms for past dates (similar to `setTimeout(..., -2389324)`).
+
+// OR Unenroll the callback (and the alarm will not trigger)
+clearAlarm(alarm); // undefined</code>
 </code></pre>
 <p><a href="https://raw.githubusercontent.com/aureooms/set-alarm/main/LICENSE"><img src="https://img.shields.io/github/license/aureooms/set-alarm.svg" alt="License"></a>
 <a href="https://www.npmjs.org/package/set-alarm"><img src="https://img.shields.io/npm/v/set-alarm.svg" alt="Version"></a>
-<a href="https://travis-ci.org/aureooms/set-alarm/branches"><img src="https://img.shields.io/travis/aureooms/set-alarm/main.svg" alt="Build"></a>
+<a href="https://travis-ci.com/aureooms/set-alarm/branches"><img src="https://img.shields.io/travis/aureooms/set-alarm/main.svg" alt="Build"></a>
 <a href="https://david-dm.org/aureooms/set-alarm"><img src="https://img.shields.io/david/aureooms/set-alarm.svg" alt="Dependencies"></a>
 <a href="https://david-dm.org/aureooms/set-alarm?type=dev"><img src="https://img.shields.io/david/dev/aureooms/set-alarm.svg" alt="Dev dependencies"></a>
 <a href="https://github.com/aureooms/set-alarm/issues"><img src="https://img.shields.io/github/issues/aureooms/set-alarm.svg" alt="GitHub issues"></a>

@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/Alarm.js",
-    "content": "export default class Alarm {\n\tconstructor(handle) {\n\t\tthis._handle = handle;\n\t}\n\n\trecord(handle) {\n\t\t// NB: This works even if this._handle was created with setInterval.\n\t\t// See: https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-setinterval\n\t\tclearTimeout(this._handle);\n\t\tthis._handle = handle;\n\t}\n\n\tclear() {\n\t\tthis.record(undefined);\n\t}\n}\n",
+    "content": "/**\n * The type returned by setAlarm.\n */\nexport default class Alarm {\n\t/**\n\t * Construct an Alarm given a setTimeout handle.\n\t *\n\t * @param {any} handle\n\t */\n\tconstructor(handle) {\n\t\tthis._handle = handle;\n\t}\n\n\t/**\n\t * Record a new setTimeout handle (and clear previous one if any).\n\t *\n\t * @param {any} handle\n\t */\n\trecord(handle) {\n\t\t// NB: This works even if this._handle was created with setInterval.\n\t\t// See: https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-setinterval\n\t\tclearTimeout(this._handle);\n\t\tthis._handle = handle;\n\t}\n\n\t/**\n\t * Clear last setTimeout handle.\n\t */\n\tclear() {\n\t\tthis.record(undefined);\n\t}\n}\n",
     "static": true,
     "longname": "/home/runner/work/set-alarm/set-alarm/src/Alarm.js",
     "access": "public",
@@ -585,9 +585,8 @@
     "export": true,
     "importPath": "set-alarm/src/Alarm.js",
     "importStyle": "Alarm",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "The type returned by setAlarm.",
+    "lineNumber": 4,
     "interface": false
   },
   {
@@ -600,9 +599,20 @@
     "static": false,
     "longname": "src/Alarm.js~Alarm#constructor",
     "access": "public",
-    "description": null,
-    "lineNumber": 2,
-    "undocument": true
+    "description": "Construct an Alarm given a setTimeout handle.",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "handle",
+        "description": ""
+      }
+    ]
   },
   {
     "__docId__": 51,
@@ -613,7 +623,7 @@
     "longname": "src/Alarm.js~Alarm#_handle",
     "access": "private",
     "description": null,
-    "lineNumber": 3,
+    "lineNumber": 11,
     "undocument": true,
     "type": {
       "types": [
@@ -631,15 +641,18 @@
     "static": false,
     "longname": "src/Alarm.js~Alarm#record",
     "access": "public",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
+    "description": "Record a new setTimeout handle (and clear previous one if any).",
+    "lineNumber": 19,
     "params": [
       {
-        "name": "handle",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "handle",
+        "description": ""
       }
     ],
     "return": null
@@ -654,9 +667,8 @@
     "static": false,
     "longname": "src/Alarm.js~Alarm#clear",
     "access": "public",
-    "description": null,
-    "lineNumber": 13,
-    "undocument": true,
+    "description": "Clear last setTimeout handle.",
+    "lineNumber": 29,
     "params": [],
     "return": null
   },
@@ -962,7 +974,7 @@
   },
   {
     "kind": "index",
-    "content": ":alarm_clock: [set-alarm](https://aureooms.github.io/set-alarm)\n==\n\nCall a `Function` on a given `Date`.\nThe API tries to mimic [the `setTimeout` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) as best as possible.\nSee [docs](https://aureooms.github.io/set-alarm/index.html).\n\n```js\nimport {setAlarm, clearAlarm, Alarm} from 'set-alarm';\nconst firstOfApril2021AtNoonZuluTime = new Date('2021-04-01T12:00Z');\nconst alarm = setAlarm(() => console.debug(new Date() - firstOfApril2021AtNoonZuluTime), firstOfApril2021AtNoonZuluTime);\nalarm instanceof Alarm; // true\nclearAlarm(alarm); // to unenroll the callback\n// Otherwise:\n//  - if date is in the future: should trigger approximately at or just after the date, logging a small nonnegative number\n//  - if date is in the past: will trigger anyway logging a possibly large positive number\n// It is up to you to ignore alarms for past dates (similar to `setTimeout(..., -2389324)`).\n```\n\n[![License](https://img.shields.io/github/license/aureooms/set-alarm.svg)](https://raw.githubusercontent.com/aureooms/set-alarm/main/LICENSE)\n[![Version](https://img.shields.io/npm/v/set-alarm.svg)](https://www.npmjs.org/package/set-alarm)\n[![Build](https://img.shields.io/travis/aureooms/set-alarm/main.svg)](https://travis-ci.org/aureooms/set-alarm/branches)\n[![Dependencies](https://img.shields.io/david/aureooms/set-alarm.svg)](https://david-dm.org/aureooms/set-alarm)\n[![Dev dependencies](https://img.shields.io/david/dev/aureooms/set-alarm.svg)](https://david-dm.org/aureooms/set-alarm?type=dev)\n[![GitHub issues](https://img.shields.io/github/issues/aureooms/set-alarm.svg)](https://github.com/aureooms/set-alarm/issues)\n[![Downloads](https://img.shields.io/npm/dm/set-alarm.svg)](https://www.npmjs.org/package/set-alarm)\n\n[![Code issues](https://img.shields.io/codeclimate/issues/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/issues)\n[![Code maintainability](https://img.shields.io/codeclimate/maintainability/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/trends/churn)\n[![Code coverage (cov)](https://img.shields.io/codecov/c/gh/aureooms/set-alarm/main.svg)](https://codecov.io/gh/aureooms/set-alarm)\n[![Code technical debt](https://img.shields.io/codeclimate/tech-debt/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/trends/technical_debt)\n[![Documentation](https://aureooms.github.io/set-alarm/badge.svg)](https://aureooms.github.io/set-alarm/source.html)\n[![Package size](https://img.shields.io/bundlephobia/minzip/set-alarm)](https://bundlephobia.com/result?p=set-alarm)\n",
+    "content": ":alarm_clock: [set-alarm](https://aureooms.github.io/set-alarm)\n==\n\nCall a `Function` on a given `Date`.\nThe API tries to mimic [the `setTimeout` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) as best as possible.\nSee [docs](https://aureooms.github.io/set-alarm/index.html).\n\n```js\nimport {\n\tsetAlarm,\n\tclearAlarm,\n\tAlarm\n} from 'set-alarm';\n\nconst firstOfApril2021AtNoonZuluTime = new Date('2021-04-01T12:00Z');\n\n// Set an alarm\nconst alarm = setAlarm(() => {\n\tconsole.debug(new Date() - firstOfApril2021AtNoonZuluTime);\n}, firstOfApril2021AtNoonZuluTime);\n\nalarm instanceof Alarm; // true\n\n// Two scenarios:\n//  - if date is in the future: should trigger at or just after the date, logging a small nonnegative number\n//  - if date is in the past: will trigger anyway logging a possibly large positive number\n// It is up to you to ignore alarms for past dates (similar to `setTimeout(..., -2389324)`).\n\n// OR Unenroll the callback (and the alarm will not trigger)\nclearAlarm(alarm); // undefined\n```\n\n[![License](https://img.shields.io/github/license/aureooms/set-alarm.svg)](https://raw.githubusercontent.com/aureooms/set-alarm/main/LICENSE)\n[![Version](https://img.shields.io/npm/v/set-alarm.svg)](https://www.npmjs.org/package/set-alarm)\n[![Build](https://img.shields.io/travis/aureooms/set-alarm/main.svg)](https://travis-ci.com/aureooms/set-alarm/branches)\n[![Dependencies](https://img.shields.io/david/aureooms/set-alarm.svg)](https://david-dm.org/aureooms/set-alarm)\n[![Dev dependencies](https://img.shields.io/david/dev/aureooms/set-alarm.svg)](https://david-dm.org/aureooms/set-alarm?type=dev)\n[![GitHub issues](https://img.shields.io/github/issues/aureooms/set-alarm.svg)](https://github.com/aureooms/set-alarm/issues)\n[![Downloads](https://img.shields.io/npm/dm/set-alarm.svg)](https://www.npmjs.org/package/set-alarm)\n\n[![Code issues](https://img.shields.io/codeclimate/issues/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/issues)\n[![Code maintainability](https://img.shields.io/codeclimate/maintainability/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/trends/churn)\n[![Code coverage (cov)](https://img.shields.io/codecov/c/gh/aureooms/set-alarm/main.svg)](https://codecov.io/gh/aureooms/set-alarm)\n[![Code technical debt](https://img.shields.io/codeclimate/tech-debt/aureooms/set-alarm.svg)](https://codeclimate.com/github/aureooms/set-alarm/trends/technical_debt)\n[![Documentation](https://aureooms.github.io/set-alarm/badge.svg)](https://aureooms.github.io/set-alarm/source.html)\n[![Package size](https://img.shields.io/bundlephobia/minzip/set-alarm)](https://bundlephobia.com/result?p=set-alarm)\n",
     "longname": "/home/runner/work/set-alarm/set-alarm/README.md",
     "name": "./README.md",
     "static": true,
@@ -970,7 +982,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"set-alarm\",\n  \"description\": \"Call a Function on a given Date\",\n  \"version\": \"1.0.4\",\n  \"license\": \"AGPL-3.0\",\n  \"author\": \"aureooms\",\n  \"homepage\": \"https://aureooms.github.io/set-alarm\",\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"https://github.com/aureooms/set-alarm\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/aureooms/set-alarm/issues\"\n  },\n  \"keywords\": [\n    \"Date\",\n    \"Function\",\n    \"alarm\",\n    \"callback\",\n    \"setAlarm\",\n    \"setTimeout\"\n  ],\n  \"sideEffects\": false,\n  \"source\": \"src/index.js\",\n  \"main\": \"dist/index.js\",\n  \"module\": \"dist/index.module.js\",\n  \"unpkg\": \"dist/index.umd.js\",\n  \"exports\": \"dist/index.modern.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"scripts\": {\n    \"build\": \"NODE_ENV=production microbundle\",\n    \"build-docs\": \"esdoc\",\n    \"build-gh-pages\": \"npm run build-docs\",\n    \"cover\": \"nyc --reporter=lcov npm test\",\n    \"debug\": \"NODE_ENV=debug npm run test -- -st --fail-fast\",\n    \"dev\": \"npm run lint-config && npm run lint-and-fix && npm run cover -- -- -t --fail-fast\",\n    \"lint\": \"xo\",\n    \"lint-and-fix\": \"npm run lint -- --fix\",\n    \"lint-config\": \"fixpack --dryRun\",\n    \"lint-config-and-fix\": \"npm run lint-config -- --no-dryRun\",\n    \"prepare\": \"npm run build\",\n    \"release\": \"np --message ':hatching_chick: v%s'\",\n    \"test\": \"ava\",\n    \"travis\": \"npm run lint && npm run cover\"\n  },\n  \"dependencies\": {},\n  \"devDependencies\": {\n    \"@babel/cli\": \"7.13.0\",\n    \"@babel/core\": \"7.13.1\",\n    \"@babel/preset-env\": \"7.13.5\",\n    \"@babel/register\": \"7.13.0\",\n    \"ava\": \"3.15.0\",\n    \"babel-plugin-transform-remove-console\": \"6.9.4\",\n    \"babel-plugin-unassert\": \"3.0.1\",\n    \"babel-preset-power-assert\": \"3.0.0\",\n    \"coveralls\": \"3.1.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"1.0.0\",\n    \"esdoc-inject-script-plugin\": \"1.0.0\",\n    \"esdoc-inject-style-plugin\": \"1.0.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"fixpack\": \"^4.0.0\",\n    \"microbundle\": \"^0.13.0\",\n    \"np\": \"7.4.0\",\n    \"nyc\": \"15.1.0\",\n    \"power-assert\": \"1.6.1\",\n    \"xo\": \"0.38.1\"\n  },\n  \"ava\": {\n    \"files\": [\n      \"test/src/**/*\"\n    ],\n    \"require\": [\n      \"@babel/register\"\n    ],\n    \"timeout\": \"1m\"\n  },\n  \"babel\": {\n    \"presets\": [\n      [\n        \"@babel/preset-env\",\n        {\n          \"targets\": [\n            \"defaults\",\n            \"maintained node versions\"\n          ]\n        }\n      ]\n    ],\n    \"env\": {\n      \"debug\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": \"current node\"\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ],\n        \"sourceMaps\": \"inline\"\n      },\n      \"test\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": \"current node\"\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ],\n        \"sourceMaps\": \"inline\"\n      },\n      \"development\": {\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ],\n        \"sourceMaps\": \"inline\"\n      },\n      \"production\": {\n        \"plugins\": [\n          \"babel-plugin-unassert\",\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ],\n        \"sourceMaps\": \"inline\"\n      }\n    }\n  },\n  \"prettier\": {\n    \"trailingComma\": \"all\"\n  },\n  \"xo\": {\n    \"prettier\": true,\n    \"ignores\": [\n      \"lib\"\n    ],\n    \"plugins\": [\n      \"unicorn\"\n    ],\n    \"rules\": {\n      \"unicorn/filename-case\": \"off\",\n      \"no-warning-comments\": \"off\"\n    },\n    \"overrides\": [\n      {\n        \"files\": [\n          \"doc/**\"\n        ],\n        \"env\": \"browser\"\n      }\n    ]\n  }\n}\n",
+    "content": "{\n  \"name\": \"set-alarm\",\n  \"description\": \"Call a Function on a given Date\",\n  \"version\": \"1.0.5\",\n  \"license\": \"AGPL-3.0\",\n  \"author\": \"aureooms\",\n  \"homepage\": \"https://aureooms.github.io/set-alarm\",\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"https://github.com/aureooms/set-alarm\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/aureooms/set-alarm/issues\"\n  },\n  \"keywords\": [\n    \"Date\",\n    \"Function\",\n    \"alarm\",\n    \"callback\",\n    \"setAlarm\",\n    \"setTimeout\"\n  ],\n  \"sideEffects\": false,\n  \"source\": \"src/index.js\",\n  \"main\": \"dist/index.js\",\n  \"module\": \"dist/index.module.js\",\n  \"unpkg\": \"dist/index.umd.js\",\n  \"exports\": \"./dist/index.modern.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"scripts\": {\n    \"build\": \"NODE_ENV=production microbundle\",\n    \"build-docs\": \"esdoc\",\n    \"build-gh-pages\": \"npm run build-docs\",\n    \"commit-msg\": \"commitlint --edit\",\n    \"cover\": \"c8 --all --src src --reporter=lcov npm test\",\n    \"debug\": \"NODE_ENV=debug npm run test -- -st --fail-fast\",\n    \"dev\": \"npm run lint-config && npm run lint-and-fix && npm run cover -- -- -t --fail-fast\",\n    \"install-hooks\": \"husky install\",\n    \"lint\": \"xo\",\n    \"lint-and-fix\": \"npm run lint -- --fix\",\n    \"lint-config\": \"fixpack --dryRun\",\n    \"lint-config-and-fix\": \"fixpack || fixpack\",\n    \"postinstall\": \"npm run install-hooks\",\n    \"postpublish\": \"pinst --enable\",\n    \"precommit\": \"lint-staged\",\n    \"prepare\": \"npm run build\",\n    \"prepublishOnly\": \"pinst --disable\",\n    \"release\": \"np --message ':hatching_chick: release: Bumping to v%s.'\",\n    \"test\": \"ava\",\n    \"travis\": \"npm run lint && npm run cover\"\n  },\n  \"dependencies\": {},\n  \"devDependencies\": {\n    \"@babel/cli\": \"7.13.10\",\n    \"@babel/core\": \"7.13.10\",\n    \"@babel/preset-env\": \"7.13.10\",\n    \"@babel/register\": \"7.13.8\",\n    \"@commitlint/cli\": \"12.0.1\",\n    \"@js-library/commitlint-config\": \"0.0.3\",\n    \"ava\": \"3.15.0\",\n    \"babel-plugin-transform-remove-console\": \"6.9.4\",\n    \"babel-plugin-unassert\": \"3.0.1\",\n    \"babel-preset-power-assert\": \"3.0.0\",\n    \"c8\": \"7.6.0\",\n    \"coveralls\": \"3.1.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"1.0.0\",\n    \"esdoc-inject-script-plugin\": \"1.0.0\",\n    \"esdoc-inject-style-plugin\": \"1.0.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"fixpack\": \"4.0.0\",\n    \"husky\": \"5.1.3\",\n    \"lint-staged\": \"10.5.4\",\n    \"microbundle\": \"0.13.0\",\n    \"np\": \"7.4.0\",\n    \"pinst\": \"2.1.6\",\n    \"power-assert\": \"1.6.1\",\n    \"xo\": \"0.38.2\"\n  },\n  \"ava\": {\n    \"files\": [\n      \"test/src/**/*\"\n    ],\n    \"require\": [\n      \"@babel/register\"\n    ],\n    \"timeout\": \"1m\"\n  },\n  \"babel\": {\n    \"sourceMaps\": true,\n    \"presets\": [\n      [\n        \"@babel/preset-env\",\n        {\n          \"targets\": [\n            \"defaults\",\n            \"maintained node versions\"\n          ]\n        }\n      ]\n    ],\n    \"env\": {\n      \"debug\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": \"current node\"\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"test\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": \"current node\"\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"development\": {\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"production\": {\n        \"plugins\": [\n          \"babel-plugin-unassert\",\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      }\n    }\n  },\n  \"lint-staged\": {\n    \"*.js\": [\n      \"npm run lint-and-fix\"\n    ],\n    \"package.json\": [\n      \"npm run lint-config-and-fix\"\n    ]\n  },\n  \"prettier\": {\n    \"trailingComma\": \"all\"\n  },\n  \"xo\": {\n    \"prettier\": true,\n    \"plugins\": [\n      \"unicorn\"\n    ],\n    \"rules\": {\n      \"unicorn/filename-case\": \"off\",\n      \"no-warning-comments\": \"off\"\n    },\n    \"overrides\": [\n      {\n        \"files\": [\n          \"doc/**\"\n        ],\n        \"env\": \"browser\"\n      }\n    ]\n  }\n}\n",
     "longname": "/home/runner/work/set-alarm/set-alarm/package.json",
     "name": "package.json",
     "static": true,

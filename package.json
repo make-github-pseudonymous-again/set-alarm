@@ -1,7 +1,7 @@
 {
   "name": "set-alarm",
   "description": "Call a Function on a given Date",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "license": "AGPL-3.0",
   "author": "make-github-pseudonymous-again",
   "homepage": "https://make-github-pseudonymous-again.github.io/set-alarm",

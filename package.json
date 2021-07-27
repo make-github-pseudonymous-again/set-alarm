@@ -3,14 +3,14 @@
   "description": "Call a Function on a given Date",
   "version": "1.0.6",
   "license": "AGPL-3.0",
-  "author": "aureooms",
-  "homepage": "https://aureooms.github.io/set-alarm",
+  "author": "make-github-pseudonymous-again",
+  "homepage": "https://make-github-pseudonymous-again.github.io/set-alarm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aureooms/set-alarm"
+    "url": "https://github.com/make-github-pseudonymous-again/set-alarm"
   },
   "bugs": {
-    "url": "https://github.com/aureooms/set-alarm/issues"
+    "url": "https://github.com/make-github-pseudonymous-again/set-alarm/issues"
   },
   "keywords": [
     "Date",

@@ -1,3 +1,3 @@
 # Examples
 
-> More examples in [the test files](https://github.com/aureooms/set-alarm/tree/main/test/src).
+> More examples in [the test files](https://github.com/make-github-pseudonymous-again/set-alarm/tree/main/test/src).

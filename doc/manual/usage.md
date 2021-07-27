@@ -2,7 +2,7 @@
 
 Import the library where needed
 ```js
-const {setAlarm, clearAlarm} = require( 'set-alarm' ) ;
+const {setAlarm, clearAlarm} = await import( 'set-alarm' ) ;
 // or
 import {setAlarm, clearAlarm} from 'set-alarm' ;
 ```

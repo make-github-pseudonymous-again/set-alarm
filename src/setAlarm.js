@@ -4,7 +4,7 @@ import Alarm from './Alarm.js';
 // See:
 //  - https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#maximum_delay_value
 //  - https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values
-const DELAY_MAX_FOR_SET_TIMEOUT = 2147483647;
+const DELAY_MAX_FOR_SET_TIMEOUT = 2_147_483_647;
 const FACTOR_OVERTAKE = 0.1; // We try to be ahead of the event by that much.
 const FACTOR_COMPLETION = 1 - FACTOR_OVERTAKE;
 const THRESHOLD_DRIFT = 100; // We assume no drift that large will ever occur.

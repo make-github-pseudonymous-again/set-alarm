@@ -3,12 +3,9 @@ import test from 'ava';
 import {clearAlarm} from '../../../src/index.js';
 
 const clearAlarmDoesNotThrow = (t, target) => {
-	try {
+	t.notThrows(() => {
 		clearAlarm(target);
-		t.pass();
-	} catch {
-		t.fail();
-	}
+	});
 };
 
 clearAlarmDoesNotThrow.title = (title, target) =>

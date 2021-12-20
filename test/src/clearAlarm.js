@@ -5,7 +5,7 @@ import {setAlarm, clearAlarm} from '../../src/index.js';
 
 const FACTOR_RACE = 1.1;
 
-const macro = (t, delay) => {
+const macro = async (t, delay) => {
 	const trigger = () => {
 		t.fail();
 		t.end();
@@ -21,26 +21,29 @@ const macro = (t, delay) => {
 	if (clearDelay === 0) clear();
 	else setTimeout(clear, clearDelay);
 
-	const check = () => {
-		try {
-			clearAlarm(alarm); // Checks that clearing twice does not throw.
-			t.pass();
-		} catch {
-			t.fail();
-		}
+	await t.notThrowsAsync(
+		new Promise((resolve, reject) => {
+			const cb = () => {
+				try {
+					clear(); // Checks that clearing twice does not throw.
+				} catch (error) {
+					reject(error);
+				}
 
-		t.end();
-	};
+				resolve();
+			};
 
-	setTimeout(check, delay * FACTOR_RACE);
+			setTimeout(cb, delay * FACTOR_RACE);
+		}),
+	);
 };
 
 macro.title = (title, delay) =>
 	title ?? `clearAlarm(setAlarm(..., now + ${delay})) [delayed]`;
 
-test.cb(macro, 0);
-test.cb(macro, 1);
-test.cb(macro, 333);
-test.cb(macro, 1000);
-test.cb(macro, 2000);
-test.cb(macro, 10000);
+test(macro, 0);
+test(macro, 1);
+test(macro, 333);
+test(macro, 1000);
+test(macro, 2000);
+test(macro, 10_000);

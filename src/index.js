@@ -1,6 +1,4 @@
-import Alarm from './Alarm.js';
-import TOLERANCE from './TOLERANCE.js';
-import clearAlarm from './clearAlarm.js';
-import setAlarm from './setAlarm.js';
-
-export {Alarm, TOLERANCE, clearAlarm, setAlarm};
+export {default as Alarm} from './Alarm.js';
+export {default as clearAlarm} from './clearAlarm.js';
+export {default as TOLERANCE} from './TOLERANCE.js';
+export {default as setAlarm} from './setAlarm.js';

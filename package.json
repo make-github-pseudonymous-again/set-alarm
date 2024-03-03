@@ -102,7 +102,7 @@
       "test/src/**/*"
     ],
     "nodeArguments": [
-      "--experimental-loader=@node-loader/core"
+      "--import=data:text/javascript,import {register} from 'node:module'; import {pathToFileURL} from 'node:url'; register('@node-loader/core', pathToFileURL('./'))"
     ],
     "timeout": "1m"
   },

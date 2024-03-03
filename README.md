@@ -32,7 +32,7 @@ clearAlarm(alarm); // undefined
 
 [![License](https://img.shields.io/github/license/make-github-pseudonymous-again/set-alarm.svg)](https://raw.githubusercontent.com/make-github-pseudonymous-again/set-alarm/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/set-alarm.svg)](https://www.npmjs.org/package/set-alarm)
-[![Tests](https://img.shields.io/github/workflow/status/make-github-pseudonymous-again/set-alarm/ci:cover?event=push&label=tests)](https://github.com/make-github-pseudonymous-again/set-alarm/actions/workflows/ci:cover.yml?query=branch:main)
+[![Tests](https://img.shields.io/github/workflow/status/make-github-pseudonymous-again/set-alarm/ci?event=push&label=tests)](https://github.com/make-github-pseudonymous-again/set-alarm/actions/workflows/ci.yml?query=branch:main)
 [![Dependencies](https://img.shields.io/librariesio/github/make-github-pseudonymous-again/set-alarm.svg)](https://github.com/make-github-pseudonymous-again/set-alarm/network/dependencies)
 [![GitHub issues](https://img.shields.io/github/issues/make-github-pseudonymous-again/set-alarm.svg)](https://github.com/make-github-pseudonymous-again/set-alarm/issues)
 [![Downloads](https://img.shields.io/npm/dm/set-alarm.svg)](https://www.npmjs.org/package/set-alarm)

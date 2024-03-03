@@ -1,7 +1,7 @@
 import test from 'ava';
 
 import date from '../fixtures/date.js';
-import {setAlarm, clearAlarm} from '../../src/index.js';
+import {setAlarm, clearAlarm} from '#module';
 
 const FACTOR_RACE = 1.1;
 

@@ -1,7 +1,7 @@
 import test from 'ava';
 
 import date from '../../fixtures/date.js';
-import {setAlarm} from '../../../src/index.js';
+import {setAlarm} from '#module';
 
 const macro = async (t, delay) => {
 	const expected = [Math.random(), Math.random(), Math.random()];

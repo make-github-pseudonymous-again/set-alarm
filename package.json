@@ -66,9 +66,9 @@
   "devDependencies": {
     "@babel/core": "7.24.0",
     "@babel/preset-env": "7.24.0",
-    "@babel/register": "7.23.7",
     "@commitlint/cli": "19.0.3",
     "@js-library/commitlint-config": "0.0.4",
+    "@node-loader/babel": "2.0.1",
     "ava": "6.1.2",
     "babel-plugin-transform-remove-console": "6.9.4",
     "babel-plugin-unassert": "3.2.0",
@@ -92,21 +92,13 @@
     "files": [
       "test/src/**/*"
     ],
-    "require": [
-      "@babel/register"
+    "nodeArguments": [
+      "--experimental-loader=@node-loader/babel"
     ],
     "timeout": "1m"
   },
   "babel": {
     "sourceMaps": true,
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": "current node"
-        }
-      ]
-    ],
     "plugins": [
       [
         "transform-remove-console",

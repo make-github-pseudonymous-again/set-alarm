@@ -1,5 +1,5 @@
-import {TOLERANCE_LEFT} from './TOLERANCE.js';
 import Alarm from './Alarm.js';
+import {TOLERANCE_LEFT} from './TOLERANCE.js';
 
 // See:
 //  - https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#maximum_delay_value

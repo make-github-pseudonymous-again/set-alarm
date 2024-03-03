@@ -1,6 +1,7 @@
 import test from 'ava';
 
 import date from '../fixtures/date.js';
+
 import {setAlarm, TOLERANCE} from '#module';
 
 const {TOLERANCE_LEFT, TOLERANCE_RIGHT} = TOLERANCE;

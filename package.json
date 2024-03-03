@@ -197,7 +197,8 @@
     "rules": {
       "unicorn/filename-case": "off",
       "no-warning-comments": "off",
-      "unicorn/prefer-node-protocol": "off"
+      "unicorn/prefer-node-protocol": "off",
+      "unicorn/prevent-abbreviations": "off"
     },
     "overrides": [
       {
